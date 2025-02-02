@@ -1,0 +1,48 @@
+# 添加代理组 （奈云组是必须要有的，因为该云自带有这个规则的）
+proxy-groups:
+  - name: 奈云
+    icon: https://raw.githubusercontent.com/laserzhu/Mihomo-Party/refs/heads/main/default.png
+    type: select
+    proxies:
+      - 自动选择
+      - DIRECT
+  - name: 自动选择
+    icon: https://raw.githubusercontent.com/laserzhu/Mihomo-Party/refs/heads/main/auto.png
+    include-all: true
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong|台|TW|Taiwan|新加坡|SG|Singapore|KR|Korea|KOR|韩|韓|日本|JP|Japan|泰国|菲律宾|马来西亚|越南|美国|US|United States
+    type: url-test
+    interval: 300
+    tolerance: 10
+  - name: 禁止中国
+    icon: https://raw.githubusercontent.com/laserzhu/Mihomo-Party/refs/heads/main/ban.png
+    include-all: true
+    filter: (?i)台|TW|Taiwan|新加坡|SG|Singapore|KR|Korea|KOR|韩|韓|日本|JP|Japan|泰国|菲律宾|马来西亚|越南|美国|US|United States
+    type: url-test
+    interval: 300
+    tolerance: 10
+  - name: GLOBAL
+    icon: https://raw.githubusercontent.com/laserzhu/Mihomo-Party/refs/heads/main/Global.png
+    proxies:
+      - DIRECT
+      - 自动选择
+    include-all: true
+    type: select
+
+# 添加规则
++rules:
+  - "DOMAIN-KEYWORD,openai,禁止中国"
+  - "DOMAIN-KEYWORD,chatgpt,禁止中国"
+  - "DOMAIN-KEYWORD,tiktok,禁止中国"
+  - "DOMAIN-KEYWORD,microsoft,DIRECT"
+  - "DOMAIN-KEYWORD,bing,DIRECT"
+  - "DOMAIN-KEYWORD,highwebmedia,DIRECT"
+  - "DOMAIN-KEYWORD,mmcdn,DIRECT"
+  - "DOMAIN-KEYWORD,apple,DIRECT"
+  - "DOMAIN-KEYWORD,icloud,DIRECT"
+  - "DOMAIN-KEYWORD,onenote,DIRECT"
+  - "DOMAIN-KEYWORD,onedrive,DIRECT"
+  - "DOMAIN-KEYWORD,windows,DIRECT"
+  - "DOMAIN-KEYWORD,office,DIRECT"
+  - "DOMAIN-KEYWORD,live.com,DIRECT"
+  - "DOMAIN-KEYWORD,live.net,DIRECT"
+  - "DOMAIN-KEYWORD,v2ny,自动选择"
